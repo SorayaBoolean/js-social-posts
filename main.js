@@ -58,25 +58,25 @@ const posts = [
 
 //faccio generare i contenuti degli oggetti di ogni Array da Js
 
-const postDom = document.getElementById ('container')
+const containerDom = document.getElementById ('container')
 
-posts.forEach () {
+posts.forEach ((element) => {
 
-    postsDom.innerHTML += `<div class="post">
+    containerDom.innerHTML += `<div class="post">
     <div class="post__header">
         <div class="post-meta">                    
             <div class="post-meta__icon">
-                <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+                <img class="profile-pic" src="${element.media}" alt="${element.name}">                    
             </div>
             <div class="post-meta__data">
-                <div class="post-meta__author">Phil Mangione</div>
-                <div class="post-meta__time">4 mesi fa</div>
+                <div class="post-meta__author">${element.name}</div>
+                <div class="post-meta__time">${element.created}</div>
             </div>                    
         </div>
     </div>
-    <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+    <div class="post__text">${element.content}</div>
     <div class="post__image">
-        <img src="https://unsplash.it/600/300?image=171" alt="">
+        <img src="${element.image}" alt="">
     </div>
     <div class="post__footer">
         <div class="likes js-likes">
@@ -87,14 +87,13 @@ posts.forEach () {
                 </a>
             </div>
             <div class="likes__counter">
-                Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                Piace a <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
             </div>
         </div> 
     </div>            
 </div>
-    
-    `
-}
+      `
+});
 
     
 
